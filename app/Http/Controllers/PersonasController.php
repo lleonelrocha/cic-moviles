@@ -40,9 +40,12 @@ class PersonasController extends Controller
     public function postNew(PersonaCreateRequest $request)
     {
 
+
+
         $data = $request ->only('nombre', 'apellido', 'telefono1', 'telefono2', 'mail', 'funcion_id');
-        $funcion_id     = Input::get('funcion_id');
+
         $this->personaRepo->create($data);
+        $funcion_id     = Input::get('funcion_id');
 
         //Agrego funcion a persona
         $persona = Persona::all();

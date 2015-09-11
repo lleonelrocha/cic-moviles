@@ -1,4 +1,3 @@
-
 <table class="table table-striped table-bordered table-hover" id="dataTable">
     <thead>
     <tr>
@@ -22,9 +21,9 @@
             <td>{{$persona->telefono2}}</td>
             <td>{{$persona->mail}}</td>
             <td>
-                @foreach($persona->Funcion as $funcion )
-                    {{ $funcion->funcion }}
-                @endforeach
+            @foreach($persona->Funcion as $funcion)
+                {{$funcion->funcion}}
+            @endforeach
             </td>
             <td style="width: 10%;">
                 <div class=" btn-group ">

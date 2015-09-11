@@ -2,18 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: llrocha
- * Date: 26/08/2015
- * Time: 12:07 PM
+ * Date: 03/09/2015
+ * Time: 01:58 PM
  */
+
 namespace App\Http\Repositories;
+use App\Entities\OperativoFuncion;
 
-use App\Entities\Grupo;
 
-class GrupoRepo extends BaseRepo {
+class OperativoFuncionRepo extends BaseRepo {
 
     public function getModel()
     {
-        return new Grupo();
+        return new OperativoFuncion();
     }
 
     public function ListAndPaginate($paginate = 50, $search = null)

@@ -1,6 +1,6 @@
 @extends('index')
-
     @section('content')
+        @include('partials.messages')
         <div class="row">
             <div class="col-xs-12">
                 <h3 class="page-header">DISPOSITIVOS</h3>

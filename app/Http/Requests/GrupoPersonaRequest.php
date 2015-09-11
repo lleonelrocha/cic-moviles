@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-
-class OperativoRequest extends Request
+use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Validator;
+class GrupoPersonaRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +23,11 @@ class OperativoRequest extends Request
     public function rules()
     {
         return [
-            'fecha_desde'         => 'required',
-            'fecha_hasta'         => 'required',
-            'horarios'            => 'required',
-            'direccion'           => 'required',
-            'posicion'            => 'required',
-            'detalle'             => 'required',
-            'operativo_estado_id' => 'required'
+            'persona_id'    => 'required',
+            'funcion_id'    => 'required',
+            'grupo_id'      => 'required',
         ];
     }
+
 
 }

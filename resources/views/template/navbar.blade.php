@@ -60,6 +60,11 @@
                             <a href="{{route('operativos')}}">Lista Operativos</a>
                         </li>
 
+                        <li>
+                            <a href="{{route('operativo_funcion')}}"> Operativos Funcion</a>
+                        </li>
+
+
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>

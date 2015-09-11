@@ -27,7 +27,8 @@ class PersonaCreateRequest extends Request
             'apellido'  => 'required|max:255',
             'telefono1' => 'required',
             'telefono2' => 'required',
-            'mail'      => 'required|email'
+            'mail'      => 'required|email',
+            'funcion_id'=> 'required'
         ];
     }
 

@@ -8,10 +8,12 @@
 namespace App\Http\Controllers;
 use App\Entities\Funcion;
 use App\Entities\Grupo;
+use App\Entities\GrupoPersona;
 use App\Entities\Persona;
 use App\Http\Repositories\GrupoRepo;
 use App\Http\Requests\GrupoRequest;
-use App\Entities\GrupoPersona;
+use App\Http\Requests\GrupoPersonaRequest;
+
 use Illuminate\Http\Request;
 class GruposController extends Controller
 {
@@ -32,7 +34,6 @@ class GruposController extends Controller
     }
 
     public function getNew(){
-
         $data['persona'] = Persona::lists('nombre', 'id');
         $data['funcion'] = Funcion::lists('funcion', 'id');
         return view('grupos.grupos_form')->with($data);
@@ -42,7 +43,8 @@ class GruposController extends Controller
     {
         $data = $request ->only('nombre');
         $this->grupoRepo->create($data);
-        return redirect()->back()->with('msg_ok', 'Grupo creado correctamente.');
+        return redirect('grupos')->with('msg_ok', 'Grupo creado correctamente.');
+
     }
 
     public function getEdit($id = null){
@@ -62,15 +64,31 @@ class GruposController extends Controller
     //delete
     public function getDelete($id  = null)
     {
-        $model = $this->grupoRepo->find($id);
+
+        $grupo_persona = GrupoPersona::where('grupo_id', $id);
+        $grupo_persona->delete();
+
         $this->grupoRepo->Delete($id);
         return redirect()->back()->withErrors('Eliminado Correctamente');
     }
 
-    public function AddPerson(Request $request)
+    public function getDeletePerson($id  = null)
     {
-        dd($request->all());
-        return('Eliminado Correctamente');
+        $grupo_persona = GrupoPersona::find($id);
+        $grupo_persona->delete();
+        return redirect()->back()->withErrors('Eliminado Correctamente');
+    }
+
+
+    public function AddPerson(GrupoPersonaRequest $request)
+    {
+        //$grupo_persona = new GrupoPersona();
+        $datos = $request->only('persona_id', 'funcion_id', 'grupo_id');
+        $grupo_persona = new GrupoPersona();
+
+        $grupo_persona->create($datos);
+        return redirect()->back()->with('msg_ok', 'Persona agregada correctamente.');
+        // return('Eliminado Correctamente');
     }
 
 

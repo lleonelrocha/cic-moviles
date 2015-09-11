@@ -15,16 +15,15 @@ class Persona extends Entity
     // protected $hidden   = ['password', 'remember_token'];
 
 
+    //Relaciones
     public function Funcion()
     {
         return $this->belongsToMany(Funcion::getClass(), 'persona_funcion');
     }
 
-
-
     public function GruposPersona()
     {
-        return $this->hasMany(GrupoPersona::getClass(), 'grupos_persona');
+        return $this->hasMany(GrupoPersona::getClass());
     }
 
 }

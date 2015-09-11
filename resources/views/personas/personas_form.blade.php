@@ -32,9 +32,17 @@
 
                 {!! Form::label('email', 'Email :') !!}
                 {!! Form::text('mail', null ,  array('class'=>'form-control')) !!}
+                @if(empty($model))
+                    {!! Form::label('funcion', 'Funcion :') !!}
+                    {!! Form::select('funcion_id',(['' => 'Seleccionar funcion'] + $funcion->toArray()), null, ['id' => 'funcion_id', 'class' => 'form-control']) !!}
+                @else
+                    {!! Form::label('funcion', 'Funcion :') !!}
+                    {!! Form::select('funcion_id',['' => 'Seleccionar funcion'] + $funcion->toArray()  ,$model->Funcion->lists('id')->toArray(), ['id' => 'funcion_id', 'class' => 'form-control']) !!}
 
-                {!! Form::label('funcion', 'Funcion :') !!}
-                {!! Form::select('funcion_id', $funcion ,null, array('class'=>'form-control')) !!}
+
+
+                @endif
+
                 {!! '<br>'!!}
 
             {!! Form::submit('Aceptar', array('class'=>'btn btn-primary'))!!}

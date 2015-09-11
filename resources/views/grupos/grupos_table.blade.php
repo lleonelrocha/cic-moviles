@@ -1,29 +1,20 @@
-<table class="table table-striped table-bordered table-hover" id="dataTable">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Nombre</th>
-        <th>Persona</th>
-        <th>Funcion</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($model as $grupo)
-        <tr>
-            <td style="width: 5%;">{{$grupo->id}}</td>
-            <td>{{$grupo->nombre}}</td>
-
-            @foreach($grupo->GruposPersona as $persona)
-
-            @endforeach
-            <td style="width: 10%;">
-                <div class=" btn-group ">
-                    <a  class="btn btn-xs btn-primary" id="verModalId" data-toggle="modal" data-target="#verModal "><span class="glyphicon glyphicon-user"></span></a>
-                    <a href="{{ route('gruposDelete', $grupo->id) }}" class="delete btn btn-xs btn-primary"><span class="fa fa-minus"></span></a>
-                </div>
-            </td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+@foreach($model as $grupo)
+    <div class="row">
+        <div class="col-md-2">
+            {{$grupo->nombre}}
+         <a href="#" class="glyphicon glyphicon-user" id="verModalId" data-toggle="modal" data-target="#verModal" data-grupo="{{$grupo->id}}" data-nombre="{{$grupo->nombre}}" title="Agregar persona"></a>
+        </div>
+        <div class="col-md-10">
+             @if(count($grupo->GruposPersona)==0)
+                <div class="col-md-6">Sin persona asignada</div>
+             @endif
+                 @foreach($grupo->GruposPersona as $persona)
+                     <div class="col-md-4">{{$persona->Persona->nombre}}</div>
+                     <div class="col-md-3">{{$persona->Funcion->funcion}}</div>
+                     <div class="col-md-3"><a href="{{route("gruposGetDeletePerson", $persona->id)}}" class="delete ">x</a></div>
+                 @endforeach
+            <a href="{{route("gruposDelete", $grupo->id)}}" class="delete "  >Eliminar grupo</a>
+        </div>
+    </div>
+    <hr>
+@endforeach

@@ -18,9 +18,12 @@
             @else
                 {!! Form::open(['route'=>'dispositivosPostNuevo']) !!}
             @endif
-                {!! Form::text('codigo') !!}
-                {!! Form::text('descripcion') !!}
-
+                {!! Form::label('Codigo','codigo') !!}
+                {!! Form::text('codigo', null ,  array('class'=>'form-control')) !!}
+                <br>
+                {!! Form::label('Descripcion','descripcion') !!}
+                {!! Form::text('descripcion', null ,  array('class'=>'form-control')) !!}
+                <br>
                 {!! Form::submit('Aceptar')!!}
             {!! Form::close()!!}
         </div>

@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth']], function() {
     require_once(__DIR__ . '\Routes\FuncionesRoute.php');
     require_once(__DIR__ . '\Routes\GruposRoute.php');
     require_once(__DIR__ . '\Routes\OperativoRoute.php');
+    require_once(__DIR__ . '\Routes\OperativoRoute.php');
+    require_once(__DIR__ . '\Routes\OperativoFuncionRoute.php');
 
     //logout
     Route::get('logout',['as'=>'logout','uses'=>'LoginController@getLogout']);

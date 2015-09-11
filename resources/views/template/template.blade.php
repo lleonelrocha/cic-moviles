@@ -30,8 +30,6 @@
 <body>
 
     <div id="wrapper">
-
-
         @yield('main-content')
     </div>
 
@@ -57,17 +55,14 @@
 
 <script>
 $(document).ready(function(){
-
     $('#dataTable').DataTable({
         responsive: true
     });
-
     $('.delete').on('click',function()
     {
         if(!confirm('Desea Borrar este item?'))
             return false;
     });
-
     /*
      $('#example').DataTable({
      "columnDefs": [ {
@@ -76,6 +71,22 @@ $(document).ready(function(){
      } ]
      } );
      */
+    $(document).ready(function() {
+        $('#verModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+
+            var grupo = button.data('grupo');
+            var nombre = button.data('nombre');
+
+            var modal = $(this);
+            modal.find('.modal-title').text('Agregar persona a: ' + nombre);
+
+            var body = modal.find('.modal-body');
+
+            if(grupo != "")
+                $("input:hidden").val(grupo);
+        })
+    });
 });
 
 

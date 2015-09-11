@@ -12,7 +12,14 @@ namespace App\Entities;
 class Operativo extends Entity
 {
     protected $table        = 'operativo';
-    protected $fillable     = ['fecha_desde', 'fecha_hasta', 'horarios','direccion','posicion', 'detalle', 'operativo_estado_id'                                   ];
+    protected $fillable     = ['fecha_desde', 'fecha_hasta', 'horarios','direccion','posicion', 'detalle', 'operativo_estado_id'];
 
+
+    //Relaciones
+
+    public function OperativoFuncion()
+    {
+        return $this->belongsTo(OperativoFuncion::getClass());
+    }
 
 }

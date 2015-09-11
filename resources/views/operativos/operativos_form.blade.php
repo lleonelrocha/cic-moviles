@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header">GRUPOS</h3>
+            <h3 class="page-header">NUEVO OPERATIVO</h3>
         </div>
         @if(count($errors) > 0)
             @foreach($errors->all() as $error)
@@ -19,30 +19,26 @@
                 {!! Form::open(['route'=>'operativosPostNuevo']) !!}
             @endif
             {!! Form::label('nombre', 'Fecha comienzo') !!}
-            {!! Form::text('fecha_hasta') !!}
-                <br>
+            {!! Form::text('fecha_hasta', null, array('class'=>'form-control')) !!}
                 <br>
                 {!! Form::label('nombre', 'Fecha final') !!}
-                {!! Form::text('fecha_desde') !!}
-                <br>
+                {!! Form::text('fecha_desde', null, array('class'=>'form-control')) !!}
                 <br>
                 {!! Form::label('horarios', 'Horarios') !!}
-                {!! Form::text('horarios') !!}
-                <br>
+                {!! Form::text('horarios', '', array('class'=>'form-control')) !!}
                 <br>
                 {!! Form::label('nombre', 'Direccion') !!}
-                {!! Form::text('direccion') !!}
-                <br>
+                {!! Form::text('direccion', null, array('class'=> 'form-control')) !!}
                 <br>
                 {!! Form::label('posicion', 'Posicion') !!}
-                {!! Form::text('posicion') !!}
-                <br>
+                {!! Form::text('posicion', null, array('class'=>'form-control')) !!}
                 <br>
                 {!! Form::label('detalle', 'Detalle') !!}
-                {!! Form::text('detalle') !!}
+                {!! Form::text('detalle', null, array('class'=>'form-control')) !!}
                 <br>
-                <br>
-            {!! Form::submit('Aceptar')!!}
+
+
+                {!! Form::submit('Aceptar')!!}
             {!! Form::close()!!}
         </div>
 

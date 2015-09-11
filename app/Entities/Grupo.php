@@ -16,7 +16,7 @@ class Grupo extends Entity
 
     public function GruposPersona()
     {
-        return $this->hasMany(GrupoPersona::getClass(), 'grupos_persona');
+        return $this->hasMany(GrupoPersona::getClass());
     }
 
 

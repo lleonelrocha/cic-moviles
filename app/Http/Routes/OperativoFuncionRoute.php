@@ -6,8 +6,8 @@
  * Time: 10:51 AM
  */
 
-$module = 'grupos';
-$controller = 'GruposController';
+$module = 'operativo_funcion';
+$controller = 'OperativosFuncionController';
 
 Route::get($module ,['middleware' => ['roles:'.$module.'-listar'] , 'as'=>$module ,'uses'=>$controller. '@getIndex']);
 Route::get($module.'Nuevo',['middleware' => ['roles:'.$module.'-agregar'] , 'as'=>$module.'Nuevo','uses'=>$controller. '@getNew']);
@@ -16,7 +16,5 @@ Route::get($module.'Borrar/{id}',   ['middleware' => ['roles:'.$module.'-elimina
 Route::post($module.'NuevoPost',  ['as' => $module.'PostNuevo','uses'=>$controller. '@postNew']);
 Route::post($module.'EditarPost/{id}', ['as' => $module.'PostEdit','uses'=>$controller. '@postEdit']);
 
-Route::post($module.'AddPerson', ['as' => $module.'AddPerson','uses'=>$controller. '@addPerson']);
-Route::get($module.'GetDeletePerson/{id}', ['as' => $module.'GetDeletePerson','uses'=>$controller. '@getDeletePerson']);
 
 

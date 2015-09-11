@@ -10,7 +10,7 @@ namespace App\Entities;
 class GrupoPersona extends Entity{
 
     protected $table = 'grupos_persona';
-    protected $guarded = array('');
+    protected $fillable     = ['persona_id', 'grupo_id', 'funcion_id' ];
 
     public function Grupos()
     {
